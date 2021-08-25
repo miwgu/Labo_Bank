@@ -1,2 +1,4 @@
-package com.example.demo.persistance;public class AccountRepositoryHibernate {
+package com.example.demo.persistance;
+
+public class AccountRepositoryHibernate {
 }
