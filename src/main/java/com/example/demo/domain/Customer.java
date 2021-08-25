@@ -1,12 +1,11 @@
 package com.example.demo.domain;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 /**
  * Created by Miwa Guhrés
  * Date: 2021-04-20
@@ -14,16 +13,35 @@ import javax.persistence.Id;
  * Project: Labo_Bank
  * Copyright: MIT
  */
+
 @Getter
 @Setter
 @Entity
 public class Customer {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
+    @Column(name = "firstName")
     private String firstName;
+    @Column(name = "lastName")
     private String lastName;
-    private int ssNumber;
-    private String address;
-    private String telephone;
+
+    @OneToOne(mappedBy = "customer")
+    private Account account;
+
+    public Customer(long id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Customer() {
+
+    }
+
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }
