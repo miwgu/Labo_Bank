@@ -20,10 +20,17 @@ import javax.persistence.Id;
 public class Customer {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+    private long customerId;
     private String firstName;
     private String lastName;
     private int ssNumber;
     private String address;
     private String telephone;
+
+    public Customer(){}
+
+    public Customer(Long customerId){
+        this.customerId=customerId;
+    }
+
 }
