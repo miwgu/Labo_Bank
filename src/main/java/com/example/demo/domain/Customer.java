@@ -19,12 +19,12 @@ import javax.persistence.*;
 @Entity
 public class Customer {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
-    @Column(name = "firstName")
+    @Column(name = "firstname")
     private String firstName;
-    @Column(name = "lastName")
+    @Column(name = "lastname")
     private String lastName;
 
     @OneToOne(mappedBy = "customer")

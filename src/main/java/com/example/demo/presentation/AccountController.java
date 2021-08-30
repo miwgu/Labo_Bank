@@ -29,7 +29,7 @@ public class AccountController {
         return "redirect:" + account.getCustomer().getId() + "/account/" + account.getId();
     }
     @GetMapping(path= "/{customerId}/account/{accountId}")
-    public String showAccount(@PathVariable("customerId") Long customerId, @PathVariable("accountId")Long accountId,
+    public String showAccount(@PathVariable("customerId") long customerId, @PathVariable("accountId")long accountId,
                               @RequestParam(name="deposit", required=false) Long deposit,
                               @RequestParam(name="withdraw", required = false) Long withdraw, Model model){
         Account account = personalFinanceService.findAccount(customerId, accountId);
@@ -42,7 +42,7 @@ public class AccountController {
         }
 
     @PostMapping("/bank/{customerId}/account/{accountId}/deposit")
-    public String deposit(@PathVariable("customerId") Long customerId, @PathVariable("accountId") Long accountId, @RequestParam Long deposit) {
+    public String deposit(@PathVariable("customerId") long customerId, @PathVariable("accountId") long accountId, @RequestParam Long deposit) {
         final Account account = personalFinanceService.deposit(customerId, accountId, deposit);
         return "redirect:" + account.getCustomer().getId() + "/account/" + account.getId();
     }

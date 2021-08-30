@@ -5,7 +5,7 @@ lastName VARCHAR(250));
 
 CREATE TABLE account (
 id INT AUTO_INCREMENT PRIMARY KEY,
-customerId INT,
+customer_Id INT,
 balance INT,
-foreign key (customerId) references customer(id));
+foreign key (customer_Id) references customer(id));
 

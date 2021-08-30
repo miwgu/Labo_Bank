@@ -21,17 +21,17 @@ import javax.persistence.*;
 public class Account {
 
     @Id
-    @Column(name="id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id")
     private long id;
     @Column(name = "balance")
     private long balance;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="customer", referencedColumnName = "id")
+    @JoinColumn(name="customer_Id", referencedColumnName = "id")
     private Customer customer;
 
-    public Account(Customer customer, long balance){
+    public Account(Customer customer, long balance) {
         this.customer = customer;
         this.balance = balance;
     }
